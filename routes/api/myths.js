@@ -9,7 +9,7 @@ const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); 
 
-router.use(verifyApiKey);
+//router.use(verifyApiKey);
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../../public/random.html"));
 });
