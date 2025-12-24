@@ -11,7 +11,15 @@ const app = express();
 //const PORT = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); 
-app.use(cors());
+//app.options('/*splat', cors()) 
+app.use(cors({
+	origin: true, // IMPORTANT: reflect request origin
+	methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+	allowedHeaders: ['Content-Type', 'Authorization', 'X-API-Key']
+}));
+
+app.use(express.json());
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", rootRouter);   
 app.use("/myths", mythRouter);
