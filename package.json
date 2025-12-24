@@ -7,12 +7,13 @@
   "scripts": {
     "test": "nodemon index.js",
     "start": "node index.js",
-	"dev": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "knuth-shuffle-seeded": "^1.0.6",
