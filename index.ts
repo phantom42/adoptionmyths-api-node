@@ -3,17 +3,23 @@ import express from "express";
 import path from "path";
 import cors from 'cors';
 import { fileURLToPath } from "url";
-import rootRouter from "./routes/root";
-import mythRouter from './routes/api/myths';
-import connectDB from "./config/dbConnect";
+import rootRouter from "./routes/root.js";
+import mythRouter from './routes/api/myths.js';
+import connectDB from "./config/dbConnect.js";
 
 const app = express();
 //const PORT = process.env.PORT || 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename); 
 //app.options('/*splat', cors()) 
+const allowedOrigins = [
+	'https://www.adoption-myths.com',
+	'https://adoption-myths.com',
+	'https://www.adoptionmyths.net',
+	'https://adoptionmyths.net',
+];
 app.use(cors({
-	origin: true, // IMPORTANT: reflect request origin
+	origin: allowedOrigins,
 	methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
 	allowedHeaders: ['Content-Type', 'Authorization', 'X-API-Key']
 }));

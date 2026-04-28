@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-import { MythModel } from "../models/myth";
+import { MythModel } from "../models/myth.js";
 import { Request, Response } from "express";
-import { shuffle } from "../utils/shuffle";
+import { shuffle } from "../utils/shuffle.js";
 import randomItem from 'random-item';
 
 export async function getMyth(req: Request<{ id: string}>, res: Response): Promise<void> {
