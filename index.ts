@@ -3,9 +3,9 @@ import express from "express";
 import path from "path";
 import cors from 'cors';
 import { fileURLToPath } from "url";
-import rootRouter from "./routes/root.js";
-import mythRouter from './routes/api/myths.js';
-import connectDB from "./config/dbConnect.js";
+import rootRouter from "./routes/root";
+import mythRouter from './routes/api/myths';
+import connectDB from "./config/dbConnect";
 
 const app = express();
 //const PORT = process.env.PORT || 3000;
