@@ -1,7 +1,15 @@
-import mongoose from "mongoose";
-const Schema = mongoose.Schema;
+import  {Schema, model, InferSchemaType} from "mongoose";
+//const Schema = mongoose.Schema;
 
-const mythSchema = new Schema ({
+interface IMyth {
+	myth: string;
+	fact: string;
+	slug?: string;
+	image?: string;
+	learn_more?: string;
+}
+
+const mythSchema = new Schema<IMyth> ({
     myth: {
         type: String,
         required: true
@@ -26,4 +34,4 @@ const mythSchema = new Schema ({
     collection: "myths"
 });
 
-export const MythModel = mongoose.model('Myth', mythSchema);
+export const MythModel = model<IMyth>('Myth', mythSchema);
