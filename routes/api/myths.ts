@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import path from "path";
-import { verifyApiKey } from '../../middleware/verifyApiKey';
+import { verifyApiKey } from '../../middleware/verifyApiKey.js';
 import { getRandomListOfMyths, getRandomMyth, getMyth, getAllMyths } from '../../controllers/mythController.js';
 import { fileURLToPath } from "url";    
 
