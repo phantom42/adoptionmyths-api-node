@@ -17,6 +17,8 @@ const allowedOrigins = [
 	'https://adoption-myths.com',
 	'https://www.adoptionmyths.net',
 	'https://adoptionmyths.net',
+	'http://localhost:5173',
+	'http://localhost:3000',
 ];
 app.use(cors({
 	origin: allowedOrigins,
