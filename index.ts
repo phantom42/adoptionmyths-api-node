@@ -28,6 +28,15 @@ app.use(cors({
 
 app.use(express.json());
 
+app.use(async (_req, _res, next) => {
+	try {
+		await connectDB();
+		next();
+	} catch (err) {
+		next(err);
+	}
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/", rootRouter);   
 app.use("/myths", mythRouter);
@@ -39,7 +48,5 @@ if (process.env.NODE_ENV !== "production") {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 }
-
-connectDB();
 
 export default app;
