@@ -18,7 +18,12 @@ const allowedOrigins = [
 	'https://adoption-myths.com',
 	'https://www.adoptionmyths.net',
 	'https://adoptionmyths.net',
+	'https://adoption-means-a-better-life.vercel.app',
+	'https://adoption-means-a-better-life.vercel.app/',
+	'https://adoptionmeansabetterlife.com',
+	'https://www.adoptionmeansabetterlife.com',
 	'http://localhost:5173',
+	'http://localhost:5174',
 	'http://localhost:3000',
 ];
 app.use(cors({
