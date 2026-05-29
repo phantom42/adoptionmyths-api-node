@@ -1,12 +1,15 @@
-import  {Schema, model, InferSchemaType} from "mongoose";
+import  {Schema, model, InferSchemaType, Types} from "mongoose";
 //const Schema = mongoose.Schema;
 
-interface IMyth {
+export interface IMyth {
 	myth: string;
 	fact: string;
 	slug?: string;
 	image?: string;
 	learn_more?: string;
+	active?: boolean;
+	submitted_by?: string;
+	_id?: Types.ObjectId;
 }
 
 const mythSchema = new Schema<IMyth> ({
@@ -29,7 +32,19 @@ const mythSchema = new Schema<IMyth> ({
     learn_more: {
         type: String,
         required: false
-    }
+    },
+	active: {
+		type: Boolean,
+		required: false
+	},
+	submitted_by: {
+		type: String,
+		required: false
+	},
+	_id: {
+		type: Types.ObjectId,
+		required: false
+	}
 }, {
     collection: "myths"
 });

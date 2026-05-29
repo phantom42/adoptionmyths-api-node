@@ -5,6 +5,7 @@ import cors from 'cors';
 import { fileURLToPath } from "url";
 import rootRouter from "./routes/root.js";
 import mythRouter from './routes/api/myths.js';
+import raindropsRouter from './routes/api/raindrops.js';
 import connectDB from "./config/dbConnect.js";
 
 const app = express();
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", rootRouter);   
 app.use("/myths", mythRouter);
 app.use("/api/myths", mythRouter);
+app.use("/api/raindrops", raindropsRouter);
 
 // Local-only server
 
