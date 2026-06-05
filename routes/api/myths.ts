@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express';
 import path from "path";
 import { verifyApiKey } from '../../middleware/verifyApiKey.js';
-import { getRandomListOfMyths, getRandomMyth, getMyth, getAllMyths, addMyth, updateMyth } from '../../controllers/mythController.js';
+import { verifyCaptcha } from '../../middleware/verifyCaptcha.js';
+import { getRandomListOfMyths, getRandomMyth, getMyth, getAllMyths, addMyth, updateMyth, getActiveMyths } from '../../controllers/mythController.js';
 import { fileURLToPath } from "url";    
 
 
@@ -20,11 +21,14 @@ router
 	.route('/randomized')
 	.get(getRandomListOfMyths)
 router
+	.route('/active')
+	.get(getActiveMyths)
+router
 	.route('/all')
 	.get(getAllMyths)
 router
 	.route('/add')
-	.post(addMyth)
+	.post( verifyCaptcha, addMyth)
 router
 	.route('/update/:id')
 	.patch(updateMyth)

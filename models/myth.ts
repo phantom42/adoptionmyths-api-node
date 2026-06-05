@@ -7,8 +7,10 @@ export interface IMyth {
 	slug?: string;
 	image?: string;
 	learn_more?: string;
+	moreInfo?: string;
 	active?: boolean;
 	submitted_by?: string;
+	email_address?: string;
 	_id?: Types.ObjectId;
 }
 
@@ -39,10 +41,6 @@ const mythSchema = new Schema<IMyth> ({
 	},
 	submitted_by: {
 		type: String,
-		required: false
-	},
-	_id: {
-		type: Types.ObjectId,
 		required: false
 	}
 }, {
